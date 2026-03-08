@@ -18,29 +18,48 @@ Go to the [Releases](https://github.com/prasoon-upliance/erp-fabless-releases/re
 | macOS | `erp-fabless_x.x.x_x64.dmg` *(when available)* |
 
 ### Windows
+
 Run the `.exe` or `.msi` installer. Follow the on-screen steps. No additional configuration needed.
 
 ### Linux (Debian/Ubuntu)
+
+**Step 1 — Install the app:**
 ```bash
 sudo dpkg -i erp-fabless_x.x.x_amd64.deb
 ```
 Or double-click the `.deb` file in your file manager.
 
+**Step 2 — Install PDF dependencies** (required for generating PO, DC, GRN documents):
+```bash
+# Virtual framebuffer and fonts
+sudo apt-get install xvfb xfonts-75dpi
+
+# wkhtmltopdf — use the official patched build, NOT the apt version
+wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.jammy_amd64.deb
+sudo dpkg -i wkhtmltox_0.12.6.1-3.jammy_amd64.deb
+sudo apt-get install -f
+```
+
+> **Why not `apt install wkhtmltopdf`?** The Ubuntu apt version is unpatched and does not support the footer flags required for document numbering. Always use the official `.deb` from the wkhtmltopdf GitHub releases.
+
 ### Linux (AppImage)
+
 ```bash
 chmod +x erp-fabless_x.x.x_amd64.AppImage
 ./erp-fabless_x.x.x_amd64.AppImage
 ```
 
+Install PDF dependencies as described in the Debian/Ubuntu section above.
+
 ---
 
 ## Updates
 
-The app updates itself automatically. When a new version is released:
+The app checks for updates automatically on every startup. When a new version is available:
 
-1. The app detects the update in the background on startup
-2. Downloads the new installer silently
-3. Installs and restarts — you'll be on the new version automatically
+1. The update downloads silently in the background
+2. A notification appears: *"Update downloaded. Restart the app to apply."*
+3. Finish what you're doing, then restart — the new version will run automatically
 
 No manual re-installation is needed for updates.
 
