@@ -28,7 +28,7 @@ $wkPresent = Get-Command wkhtmltopdf -ErrorAction SilentlyContinue
 if ($wkPresent) {
     Write-Host "wkhtmltopdf already installed — skipping."
 } else {
-    $wkUrl = "https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox-0.12.6.1.3.msvc2015-win64.exe"
+    $wkUrl = "https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.msvc2015-win64.exe"
     $wkInstaller = "$env:TEMP\wkhtmltox-setup.exe"
     Write-Host "Downloading wkhtmltopdf..."
     Invoke-WebRequest -Uri $wkUrl -OutFile $wkInstaller -UseBasicParsing
