@@ -39,7 +39,7 @@ If you prefer to install step by step, download the installer for your platform 
 ### Windows
 
 1. Run the `.exe` or `.msi` installer and follow the on-screen steps.
-2. Download and install [wkhtmltopdf](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox-0.12.6.1.3.msvc2015-win64.exe) — required for PDF generation. The installer adds it to PATH automatically.
+2. Download and install [wkhtmltopdf](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.msvc2015-win64.exe) — required for PDF generation. The installer adds it to PATH automatically.
 
 ### Linux (Debian/Ubuntu)
 
