@@ -6,9 +6,28 @@ This repository contains official release installers for **ERP Fabless**, the in
 
 ---
 
-## Download & Install
+## Quick Install (Recommended)
 
-Go to the [Releases](https://github.com/prasoon-upliance/erp-fabless-releases/releases) page and download the installer for your platform.
+Use the one-shot install scripts — they download and install the app **and** all PDF dependencies automatically.
+
+### Linux (Ubuntu/Debian)
+```bash
+wget https://raw.githubusercontent.com/prasoon-upliance/erp-fabless-releases/main/install.sh
+bash install.sh
+```
+
+### Windows (PowerShell as Administrator)
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/prasoon-upliance/erp-fabless-releases/main/install.ps1" -OutFile install.ps1
+.\install.ps1
+```
+
+---
+
+## Manual Install
+
+If you prefer to install step by step, download the installer for your platform from the [Releases](https://github.com/prasoon-upliance/erp-fabless-releases/releases) page.
 
 | Platform | File to download |
 |---|---|
@@ -19,7 +38,8 @@ Go to the [Releases](https://github.com/prasoon-upliance/erp-fabless-releases/re
 
 ### Windows
 
-Run the `.exe` or `.msi` installer. Follow the on-screen steps. No additional configuration needed.
+1. Run the `.exe` or `.msi` installer and follow the on-screen steps.
+2. Download and install [wkhtmltopdf](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox-0.12.6.1.3.msvc2015-win64.exe) — required for PDF generation. The installer adds it to PATH automatically.
 
 ### Linux (Debian/Ubuntu)
 
@@ -27,7 +47,6 @@ Run the `.exe` or `.msi` installer. Follow the on-screen steps. No additional co
 ```bash
 sudo dpkg -i erp-fabless_x.x.x_amd64.deb
 ```
-Or double-click the `.deb` file in your file manager.
 
 **Step 2 — Install PDF dependencies** (required for generating PO, DC, GRN documents):
 ```bash
